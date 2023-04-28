@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/skill-lync/Downloads/DevOps%20Handbook%20(Final).pdf" added="2023-03-24T07:07:42.939538Z" modified="2023-03-24T09:30:00.409844Z" visited="2023-03-24T07:07:42.939539Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Document Viewer" exec="&apos;evince %u&apos;" modified="2023-03-24T09:30:00.409842Z" count="3"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;evince %U&apos;" modified="2023-03-24T07:08:54.326029Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///var/lib/jenkins/secret.key" added="2023-03-24T10:15:04.027891Z" modified="2023-03-25T17:43:58.007103Z" visited="2023-03-24T10:15:04.027891Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.apple.keynote"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-03-25T17:43:58.007101Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="admin:///var/lib/jenkins/secrets/initialAdminPassword" added="2023-03-24T10:22:18.976200Z" modified="2023-03-24T10:22:23.444666Z" visited="2023-03-24T10:22:18.976203Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;gedit %U&apos;" modified="2023-03-24T10:22:18.976207Z" count="1"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-03-24T10:22:23.444664Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/From_Chennai_team/JENKINS%20-%20CI%20AND%20CD%20PIPELINE.docx" added="2023-04-17T09:07:00.717700Z" modified="2023-04-17T09:07:09.703502Z" visited="2023-04-17T09:07:00.717706Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-17T09:07:00.717718Z" count="1"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-17T09:07:09.703500Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-i9Dx1T/%5BContent_Types%5D.xml" added="2023-04-17T09:07:14.342141Z" modified="2023-04-17T09:07:14.342144Z" visited="2023-04-17T09:07:14.342141Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/xml"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-17T09:07:14.342143Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/From_Chennai_team/DEVOPS%20INTRODUCTION%20v1.pptx" added="2023-04-17T09:07:28.453056Z" modified="2023-04-17T09:07:28.794119Z" visited="2023-04-17T09:07:28.453066Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-17T09:07:28.453086Z" count="1"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-17T09:07:28.794117Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/From_Chennai_team/2-%20JENKINS%20-%20THEORY.pptx" added="2023-04-17T09:07:35.156779Z" modified="2023-04-18T09:42:18.422657Z" visited="2023-04-17T09:07:35.156780Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-18T09:42:18.422655Z" count="2"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-18T09:42:18.109274Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/DevOps_Suggestions.txt" added="2023-04-17T13:06:15.868359Z" modified="2023-04-27T13:29:08.980956Z" visited="2023-04-17T13:06:15.868359Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T13:29:08.980953Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2B/B2B_Sol_Team_content/TATAElxsi1/Final_Schedule_TaTaElxsi_CySec.xlsx" added="2023-04-17T13:19:18.608604Z" modified="2023-04-17T13:20:13.284467Z" visited="2023-04-17T13:19:18.608615Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-17T13:20:12.957379Z" count="2"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-17T13:20:13.284465Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-KiNbKo/%5BContent_Types%5D.xml" added="2023-04-17T13:19:26.603675Z" modified="2023-04-17T13:19:26.603682Z" visited="2023-04-17T13:19:26.603676Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/xml"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-17T13:19:26.603679Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2B/B2B_Sol_Team_content/TATAElxsi1/Auto_CySec.xlsx" added="2023-04-17T13:19:36.921929Z" modified="2023-04-17T13:19:37.246665Z" visited="2023-04-17T13:19:36.921937Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-17T13:19:36.921955Z" count="1"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-17T13:19:37.246663Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2B/B2B_Sol_Team_content/TATAElxsi1/New%20Text%20Document.txt" added="2023-04-17T13:19:44.028911Z" modified="2023-04-17T13:19:44.028916Z" visited="2023-04-17T13:19:44.028911Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-17T13:19:44.028913Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2B/B2B_Sol_Team_content/TATAElxsi1/REQ.docx" added="2023-04-17T13:19:54.011323Z" modified="2023-04-17T13:19:54.322088Z" visited="2023-04-17T13:19:54.011328Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-17T13:19:54.011337Z" count="1"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-17T13:19:54.322086Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-rd8NXy/word/fontTable.xml" added="2023-04-17T13:20:01.688840Z" modified="2023-04-17T13:20:01.688843Z" visited="2023-04-17T13:20:01.688840Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/xml"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-17T13:20:01.688841Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-lUeHdv/word/document.xml" added="2023-04-17T13:20:07.062695Z" modified="2023-04-17T13:20:07.062698Z" visited="2023-04-17T13:20:07.062695Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/xml"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-17T13:20:07.062696Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-NRow5E/ppt/slides/slide1.xml" added="2023-04-18T09:42:25.315564Z" modified="2023-04-18T09:42:25.315568Z" visited="2023-04-18T09:42:25.315565Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/xml"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-18T09:42:25.315566Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/git&amp;github.txt" added="2023-04-20T06:37:23.737445Z" modified="2023-04-27T11:14:02.088022Z" visited="2023-04-20T06:37:23.737445Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T11:14:02.088014Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Downloads/repo_UDS-main.zip" added="2023-04-20T06:46:32.692795Z" modified="2023-04-20T07:10:49.328540Z" visited="2023-04-20T06:46:32.692803Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;file-roller %U&apos;" modified="2023-04-20T07:10:49.034979Z" count="2"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-20T07:10:49.328538Z" count="15"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-E9H7dI/repo_UDS-main/README.md" added="2023-04-20T06:46:37.171731Z" modified="2023-04-20T06:46:55.552813Z" visited="2023-04-20T06:46:37.171731Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T06:46:55.552808Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-h2kzSn/repo_UDS-main/README.md" added="2023-04-20T06:48:09.396995Z" modified="2023-04-20T06:52:06.643477Z" visited="2023-04-20T06:48:09.396996Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T06:52:06.643475Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-PDXHis/repo_UDS-main/README.md" added="2023-04-20T06:51:59.870881Z" modified="2023-04-20T06:51:59.870886Z" visited="2023-04-20T06:51:59.870882Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T06:51:59.870884Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Downloads/repo_UDS-main/repo_UDS-main/README.md" added="2023-04-20T06:55:11.149224Z" modified="2023-04-20T07:05:59.153414Z" visited="2023-04-20T06:55:11.149224Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T07:05:59.153413Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Downloads/repo_UDS-main/repo_UDS-main.zip" added="2023-04-20T07:00:16.377721Z" modified="2023-04-20T07:00:16.377767Z" visited="2023-04-20T07:00:16.377726Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2023-04-20T07:00:16.377736Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/.cache/.fr-xAs4UO/repo_UDS-main/README.md" added="2023-04-20T07:00:20.040254Z" modified="2023-04-20T07:00:20.040257Z" visited="2023-04-20T07:00:20.040254Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T07:00:20.040256Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/repo_UDS/README.md" added="2023-04-20T07:15:13.926521Z" modified="2023-04-20T07:36:21.142445Z" visited="2023-04-20T07:15:13.926522Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T07:36:21.142443Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/repo_UDS/dem_file.html" added="2023-04-20T07:22:11.868101Z" modified="2023-04-20T07:36:24.410650Z" visited="2023-04-20T07:22:11.868101Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/html"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T07:22:39.652195Z" count="2"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/firefox_firefox.desktop /snap/bin/firefox %u&apos;" modified="2023-04-20T07:36:24.410644Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/repo_UDS/dem_file.txt" added="2023-04-20T07:22:45.097845Z" modified="2023-04-27T09:51:34.366861Z" visited="2023-04-20T07:22:45.097846Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T09:51:34.366857Z" count="8"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/jenkins.txt" added="2023-04-20T08:42:31.121239Z" modified="2023-04-28T06:35:37.970650Z" visited="2023-04-20T08:42:31.121239Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-28T06:35:37.970646Z" count="6"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/repo_UDS/DemoKey" added="2023-04-20T09:16:18.158108Z" modified="2023-04-20T09:43:46.732474Z" visited="2023-04-20T09:16:18.158109Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-20T09:43:46.732473Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Desktop/h.c" added="2023-04-27T10:10:45.071822Z" modified="2023-04-27T10:10:50.562684Z" visited="2023-04-27T10:10:45.071823Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T10:10:50.562678Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Desktop/nw/k.c" added="2023-04-27T10:11:57.361913Z" modified="2023-04-27T10:12:01.716599Z" visited="2023-04-27T10:11:57.361914Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T10:12:01.716591Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Desktop/krishna/ktry/k.c" added="2023-04-27T10:38:34.288209Z" modified="2023-04-27T10:38:34.288213Z" visited="2023-04-27T10:38:34.288209Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-csrc"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T10:38:34.288211Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/Pract1/f1.c" added="2023-04-27T11:14:16.108322Z" modified="2023-04-27T11:18:26.072236Z" visited="2023-04-27T11:14:16.108322Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-csrc"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T11:18:26.072231Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/prac2/k2.c" added="2023-04-27T12:48:42.737556Z" modified="2023-04-27T12:56:29.796903Z" visited="2023-04-27T12:48:42.737556Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-csrc"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-27T12:56:29.796901Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/plan.png" added="2023-04-27T13:14:49.929103Z" modified="2023-04-27T13:14:50.413499Z" visited="2023-04-27T13:14:49.929119Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;eog %U&apos;" modified="2023-04-27T13:14:49.929132Z" count="1"/>
+          <bookmark:application name="Image Viewer" exec="&apos;eog %u&apos;" modified="2023-04-27T13:14:50.413497Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/NASSCOM%20circulam%20(1).pdf" added="2023-04-27T13:15:11.017602Z" modified="2023-04-27T13:15:11.425677Z" visited="2023-04-27T13:15:11.017617Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;evince %U&apos;" modified="2023-04-27T13:15:11.017621Z" count="1"/>
+          <bookmark:application name="Document Viewer" exec="&apos;evince %u&apos;" modified="2023-04-27T13:15:11.425674Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///media/skill-lync/D62A49CF2A49AD75/B2E/Jenkins&amp;EmbdSys.txt" added="2023-04-28T06:41:22.630164Z" modified="2023-04-28T06:41:22.630168Z" visited="2023-04-28T06:41:22.630165Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-28T06:41:22.630166Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/skill-lync/embd/LED_Blink" added="2023-04-28T06:42:24.690851Z" modified="2023-04-28T06:42:29.284747Z" visited="2023-04-28T06:42:24.690852Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2023-04-28T06:42:29.284742Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="copyright" content="Copyright 2023, The Trustees of Indiana University" />
+    <meta name="description" content="On this page:" />
+    <link rel="search" type="application/opensearchdescription+xml" title="IU Knowledge Base" href="/resources/kms/opensearch.xml" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Set up SSH public key authentication to connect to a remote system</title>
+    <meta name="keywords" />
+    <meta name="last-modified" content="2021-12-01 17:09:53" />
+    <meta name="audiences" content="default" />
+    <meta name="approved" content="2018-08-13 15:14:09" />
+    <meta name="owner-group" content="sciapt" />
+    <meta name="docid" content="aews" />
+    <meta name="cache-hits" content="0" />
+    <meta name="cache-misses" content="0" />
+    
+    <link rel="canonical" href="https://kb.iu.edu/d/aews" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- commentDefault.html -->
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <!-- BRAND FONTS -->
+    <!--
+    <link href="//fonts.iu.edu/style.css?family=BentonSans:regular,bold,italic|BentonSansLight:regular|BentonSansCond:regular,bold|GeorgiaPro:regular" media="screen" rel="stylesheet" type="text/css"/>
+    -->
+    <link href="//fonts.iu.edu/style.css?family=BentonSansCond:bold,regular" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/resources/build/it/fonts/fonts.min.css" />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/resources/build/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/build/jquery/ui/css/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/build/jquery/colorbox/css/colorbox.css" />
+    <!-- IU BRANDING -->
+    <link rel="stylesheet" type="text/css" href="/resources/build/iu/css/iu-brand.min.css" />
+    <!-- UITS BRANDING -->
+    <link rel="stylesheet" type="text/css" href="/resources/build/it/css/it-brand.min.css" />
+    <!-- custom styles for KB -->
+    <link rel="stylesheet" type="text/css" href="/resources/build/kb/css/kb.min.css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/resources/build/bootstrap/js/html5shiv.js"></script>
+    <script src="/resources/build/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/resources/build/kb/css/kms.min.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/build/kb/css/overrides.min.css" />
+    <!-- styles from the UITS Sitecore redesign -->
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/resources/build/uits/css/rivet.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/resources/build/uits/css/Styles.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/resources/build/uits/css/microsite.min.css" />
+    <script src="/resources/build/kms/js/head.js"><!--comment--></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+      {'gtm.start':     new Date().getTime(),event:'gtm.js'}
+
+    );var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WJFT899');</script>
+</head>
+
+<body class="kms-doc comment-default-layout">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJFT899" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <div>
+
+    <div id="sr-links" class="rvt-header-wrapper__skip-link-container">
+        <ul>
+            
+            
+                <li>
+                    <a id="skip-to-content" href="#kms-document-div" accesskey="c">Skip to content</a>
+                </li>
+            
+            <li><a id="skip-to-search" href="#kb-search-text">Skip to search</a></li>
+            <li>
+                <span>
+                    <a id="skip-to-login" accesskey="l" href="#login_button">Skip to login</a>
+                </span>
+                
+            </li>
+        </ul>
+    </div>
+</div>
+        <section class="site-content">
+            <header id="nav-bar" class="site-header hidden-print">
+    <!-- Fixed navbar -->
+    <div class="uits-clone-header">
+        <header class="rvt-header-wrapper">
+            <div class="rvt-header-global">
+                <div class="rvt-container-xl">
+                    <div class="rvt-header-global__inner">
+                        <div class="rvt-header-global__logo-slot">
+                            <!--PH:GlobalHeader_Logo-->
+                            <a href="https://uits.iu.edu/" rel="noopener noreferrer" target="_blank" class="rvt-lockup rvt-link">
+                                <div class="rvt-lockup__tab">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+                                        <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                                <div class="rvt-lockup__body">
+                                    <span class="rvt-lockup__title">University Information<br />Technology Services</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--PH:GlobalHeader-->
+                        <div class="rvt-header-global__controls">
+                            <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-disclosure-toggle="menu">
+                                <!--Render Mobile Menu for Top Navigation-->
+                                <span class="rvt-sr-only">Menu</span>
+                                <svg class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="currentColor">
+                                        <path d="M15,3H1A1,1,0,0,1,1,1H15a1,1,0,0,1,0,2Z"></path>
+                                        <path d="M15,9H1A1,1,0,0,1,1,7H15a1,1,0,0,1,0,2Z"></path>
+                                        <path d="M15,15H1a1,1,0,0,1,0-2H15a1,1,0,0,1,0,2Z"></path>
+                                    </g>
+                                </svg>
+                                <svg class="rvt-global-toggle__close" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.46954 7.00409L13.7595 1.71409C13.9234 1.52279 14.009 1.27671 13.9993 1.02504C13.9895 0.773362 13.8852 0.534623 13.7071 0.356528C13.529 0.178434 13.2903 0.0741014 13.0386 0.0643803C12.7869 0.0546591 12.5408 0.140265 12.3495 0.304092L7.05954 5.59409L1.76954 0.294092C1.58124 0.105788 1.32585 -3.72428e-09 1.05954 -1.74018e-09C0.793242 2.43924e-10 0.537847 0.105788 0.349544 0.294092C0.16124 0.482395 0.055452 0.73779 0.055452 1.00409C0.055452 1.27039 0.16124 1.52579 0.349544 1.71409L5.64954 7.00409L0.349544 12.2941C0.244862 12.3837 0.159841 12.4941 0.0998179 12.6181C0.0397946 12.7422 0.00606467 12.8773 0.000745174 13.015C-0.00457432 13.1528 0.0186315 13.2901 0.0689061 13.4184C0.119181 13.5467 0.195439 13.6633 0.292893 13.7607C0.390348 13.8582 0.506896 13.9345 0.635221 13.9847C0.763546 14.035 0.900878 14.0582 1.0386 14.0529C1.17632 14.0476 1.31145 14.0138 1.43551 13.9538C1.55958 13.8938 1.6699 13.8088 1.75954 13.7041L7.05954 8.41409L12.3495 13.7041C12.5408 13.8679 12.7869 13.9535 13.0386 13.9438C13.2903 13.9341 13.529 13.8297 13.7071 13.6517C13.8852 13.4736 13.9895 13.2348 13.9993 12.9831C14.009 12.7315 13.9234 12.4854 13.7595 12.2941L8.46954 7.00409Z" fill="currentColor"></path>
+                                </svg>
+                            </button>
+                            <nav aria-label="Global navigation" class="rvt-header-global__menu rvt-is-hidden" data-disclosure="menu">
+                                <ul class="rvt-header-global__menu-list">
+                                    <li class="rvt-header-global__menu-item" data-nav-path="https://uits.iu.edu/about">
+                                        <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-about">
+                                            <div class="rvt-header-global__menu-group">
+                                                <!--Check if the top menu item is navigated to some external link-->
+                                                <a class="rvt-header-global__link" href="https://uits.iu.edu/about" rel="noopener noreferrer" target="_blank">About</a>
+                                                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-about">
+                                                    <span class="rvt-sr-only">Toggle About navigation</span>
+                                                    <svg class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                                        <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" id="primary-nav-about" hidden="">
+                                                <ul>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/about" rel="noopener noreferrer" target="_blank"> About this
+                                                            site</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/about/finance-office" rel="noopener noreferrer" target="_blank">
+                                                            Finance Office</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/about/facilities" rel="noopener noreferrer" target="_blank">
+                                                            Facilities</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/about/our-people" rel="noopener noreferrer" target="_blank"> Our People</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="rvt-header-global__menu-item" data-nav-path="https://uits.iu.edu/services">
+                                        <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-services">
+                                            <div class="rvt-header-global__menu-group">
+                                                <!--Check if the top menu item is navigated to some external link-->
+                                                <a class="rvt-header-global__link" href="https://uits.iu.edu/services" rel="noopener noreferrer" target="_blank">Services</a>
+                                                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-services">
+                                                    <span class="rvt-sr-only">Toggle Services navigation</span>
+                                                    <svg class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                                        <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" id="primary-nav-services" hidden="">
+                                                <ul>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/accessibility" rel="noopener noreferrer" target="_blank">
+                                                            Accessibility</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/all-services" rel="noopener noreferrer" target="_blank"> All Services</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/accounts-and-email" rel="noopener noreferrer" target="_blank"> Accounts &amp;
+                                                            email</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/wifi-and-networks" rel="noopener noreferrer" target="_blank"> Wi-Fi &amp;
+                                                            Networks</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/health-technology-services" rel="noopener noreferrer" target="_blank">
+                                                            Health Technology Services</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/hardware" rel="noopener noreferrer" target="_blank">
+                                                            Hardware</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/intelligent-infrastructure" rel="noopener noreferrer" target="_blank">
+                                                            Intelligent Infrastructure</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/software-and-platforms" rel="noopener noreferrer" target="_blank">
+                                                            Software &amp; Platforms</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/technology-for-teaching" rel="noopener noreferrer" target="_blank">
+                                                            Technology for Teaching</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/computer-labs-and-printing" rel="noopener noreferrer" target="_blank">
+                                                            Computer Labs &amp; Printing</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/services/technology-for-research" rel="noopener noreferrer" target="_blank">
+                                                            Technology for Research</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="rvt-header-global__menu-item" data-nav-path="https://uits.iu.edu/initiatives">
+                                        <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-initiatives">
+                                            <div class="rvt-header-global__menu-group">
+                                                <!--Check if the top menu item is navigated to some external link-->
+                                                <a class="rvt-header-global__link" href="https://uits.iu.edu/initiatives" rel="noopener noreferrer" target="_blank">Initiatives</a>
+                                                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-initiatives">
+                                                    <span class="rvt-sr-only">Toggle Initiatives navigation</span>
+                                                    <svg class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                                        <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" id="primary-nav-initiatives" hidden="">
+                                                <ul>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/initiatives/microsoft-365" rel="noopener noreferrer" target="_blank"> Microsoft 365</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="https://uits.iu.edu/initiatives/teaching-and-learning" rel="noopener noreferrer" target="_blank">
+                                                            Innovative Teaching &amp;
+                                                            Learning</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="rvt-header-global__menu-item" data-nav-path="https://uits.iu.edu/news--events">
+                                        <a href="https://itnews.iu.edu/" rel="noopener noreferrer" target="_blank" class="rvt-header-global__link">News &amp; Events</a>
+                                    </li>
+                                    <li class="rvt-header-global__menu-item" data-nav-path="https://uits.iu.edu/get-help">
+                                        <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-gethelp">
+                                            <div class="rvt-header-global__menu-group">
+                                                <!--Check if the top menu item is navigated to some external link-->
+                                                <a class="rvt-header-global__link" href="https://uits.iu.edu/get-help" rel="noopener noreferrer" target="_blank">Get Help</a>
+                                                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-gethelp">
+                                                    <span class="rvt-sr-only">Toggle Get Help navigation</span>
+                                                    <svg class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                                        <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" id="primary-nav-gethelp" hidden="">
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://status.uits.iu.edu/" class="rvt-header-global__submenu-link" rel="noopener noreferrer" target="_blank">IT Notices</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="/">Knowledge Base</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="rvt-header-global__submenu-link" href="/d/abxl">Hours &amp;
+                                                            Locations</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <button class="rvt-global-toggle" data-disclosure-toggle="search" aria-expanded="false">
+                                <span class="rvt-sr-only">Search</span>
+                                <svg class="rvt-global-toggle__search" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.71,14.29,10.89,9.47a6,6,0,1,0-1.42,1.42l4.82,4.82a1,1,0,0,0,1.42,0A1,1,0,0,0,15.71,14.29ZM6,10a4,4,0,1,1,4-4A4,4,0,0,1,6,10Z" fill="currentColor"></path>
+                                </svg>
+                            </button>
+                            <form action="https://uits.iu.edu/search" class="rvt-header-global__search rvt-is-hidden" data-disclosure="search" rel="noopener noreferrer" target="_blank" method="get" role="search">
+                                <input name="__RequestVerificationToken" type="hidden" value="1-j8x3EK_xaFBmfeElh88HLq4SNBD-mrwwSJq_fbevO7swOr8DhAJVduipxdfQ5CmRLmZsafBf4mtdtewxWrn2m2hMjI93gANga9pCMVZqg1" />
+                                <label class="rvt-sr-only" for="search">Search</label>
+                                <div class="rvt-input-group">
+                                    <input class="rvt-input-group__input rvt-text-input" id="search" name="q" type="text" />
+                                    <div class="rvt-input-group__append">
+                                        <button class="rvt-button">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="rvt-header-local rvt-border-bottom">
+            <div class="rvt-container-xl">
+                <div class="rvt-header-local__inner" data-dropdown="local-header-menu">
+                    <a class="rvt-header-local__title" href="/">Knowledge Base</a>
+                    <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-dropdown-toggle="local-header-menu">
+                        <!--Render Mobile Menu for Sub Navigation-->
+                        <span class="rvt-sr-only">Toggle local menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 16" width="16" focusable="false">
+                            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                        </svg>
+                    </button>
+                    <nav aria-label="Secondary navigation" class="rvt-header-menu" data-dropdown-menu="local-header-menu" hidden="hidden">
+                        <ul class="rvt-header-menu__list">
+                            <li class="rvt-header-menu__item">
+                                <a class="rvt-header-menu__link" href="/d/menu">Menus</a>
+                            </li>
+                            <li class="rvt-header-menu__item">
+                                <a class="rvt-header-menu__link" href="/d/line">About the team</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+            <div class="kb-content">
+                <section class="section it-black-90 hidden-print iu-cream-text search-bar">
+                    <div class="canister" id="KMS-search">
+                        <form class="form-inline" role="search" method="GET" action="/search">
+
+    <div class="canister kb-search-container">
+        <div class="unit whole" id="search-input">
+            <label class="sr-only" for="">Knowledge Base</label>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <input type="text" class="kb-search-text sqr-it" accesskey="s" id="kb-search-text" size="35" name="q" placeholder="Search the Knowledge Base..." required="required" value="" />
+                    <button class="button-primary kb-search sqr-it" type="submit" id="search-button">
+                        <span class="glyphicon glyphicon-search"></span><span class="sr-only">Search</span>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-5 lg-content-centered md-content-centered sm-content-left xs-content-left">
+                    <span class="button-secondary login-button">
+                        
+                        <a class="login_button" id="login_button" accesskey="i" href="/secure?returnUrl=%2Fd%2Faews">
+                            <span class="glyphicon glyphicon-log-in"></span> <span class=""> Log in</span>
+                        </a>
+                    </span>
+                    
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-7 lg-content-right md-content-right sm-content-right xs-content-right">
+                    <ul class="search-tool-buttons it-black-90-text simple-button-group filled-buttons tight-buttons">
+                        <li class="" id="search-options-button">
+                            <button type="button" class="it-black-15 it-black-90-text options-button button-secondary collapsed" data-toggle="collapse" data-target="#search-options">
+                                <span class="glyphicon glyphicon-cog" title="Options"></span>
+                                <span class="sr-only">Options</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="it-black-15 it-black-90-text help-button button-secondary" data-container="body" data-toggle="popover" data-placement="left" data-html="true" title="" data-content="&lt;p&gt;Chat: &lt;a href=&#39;http://ithelplive.iu.edu&#39;&gt;ITHelpLive&lt;/a&gt;&lt;br /&gt;Email: &lt;a href=&#39;mailto:ithelp@iu.edu&#39;&gt;ithelp@iu.edu&lt;/a&gt;&lt;br /&gt;Phone: &lt;a href=&#39;/d/bdti?t=plain&#39;&gt;Call your campus support center&lt;/a&gt;&lt;br /&gt;&lt;a href=&#39;/d/amgy&#39;&gt;More options &gt;&gt;&lt;/a&gt;&lt;/p&gt;">
+                                <span class="glyphicon glyphicon-question-sign" title="Help"></span>
+                                <span class="sr-only">Help</span>
+                            </button>
+                        </li>
+                        <li>
+
+                            <a href="http://ithelplive.iu.edu/" class="it-black-15 it-black-90-text button-secondary" id="chat-button" title="Chat with a consultant" target="_blank">
+                                <span class="glyphicon"></span>
+                                <span class="sr-only">Chat with a consultant</span>
+                            </a>
+
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="canister editor-buttons-and-options">
+        <div class="unit two-thirds pull-right">
+            <div class="canister search-options-container collapse" id="search-options">
+                <div class="unit one-third" id="KBsearchNumber">
+                    <select class="" id="KBsearchNumberSelect" name="s">
+                        <option>15</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>300</option>
+                    </select>
+                    <label for="KBsearchNumberSelect">results per page&nbsp;&nbsp;&nbsp; </label>
+                </div>
+                <div class="unit two-thirds" id="KBsearchArchive">
+                    <input type="checkbox" id="a" name="a" value="yes" />
+                    <label for="a">Include archived documents</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="canister page-content" id="KMS-content">
+                        <div class="unit kb-doc">
+                            <!-- Begin page content -->
+                            <main class="main kb">
+    
+    <div id="kms-document-div"><h1>Set up SSH public key authentication to connect to a remote system</h1>
+
+<div><p class="on-this-page">On this page:</p>
+</div>
+
+<ul class="toc">
+
+<li><a href="#before" title="">Before you begin</a></li>
+
+<li><a href="#linux" title="">Set up public key authentication using SSH on a Linux or macOS computer</a></li>
+
+
+
+<li><a href="#putty" title="">Set up public key authentication using PuTTY on a Windows 11, Windows 10, or Windows 8.x computer</a></li>
+ 
+ </ul>
+ <hr/>
+
+<h2 id="before">Before you begin</h2>
+
+<p>Using <a class="kbh" href="aelc" title="">SSH</a> public key <a class="kbh" href="alqk" title="">authentication</a> to connect to a remote system is a robust, more secure alternative to logging in with an account password or <a class="kbh" href="acpu" title="">passphrase</a>. SSH public key authentication relies on asymmetric cryptographic algorithms that generate a pair of separate keys (a key pair), one "private" and the other "public". You keep the private key a secret and store it on the computer you use to connect to the remote system. Conceivably, you can share the public key with anyone without compromising the private key; you store it on the remote system in a <code>.ssh/authorized_keys</code> directory.</p>
+
+<p>To use SSH public key authentication:</p>
+
+<ul>
+
+<li>The remote system must have a version of SSH installed. The information in this document assumes the remote system uses OpenSSH. If the remote system is using a different version of SSH (for example, <a class="new-window" href="https://www.ssh.com/products/tectia-ssh/" title="">Tectia SSH</a>), the process outlined below may not be correct.</li>
+
+<li>The computer you use to connect to the remote server must have a version of SSH installed. This document includes instructions for generating a key pair with command-line SSH on a Linux or macOS computer, and with PuTTY on a Windows computer.</li>
+
+<li>You need to be able to transfer your public key to the remote system. Therefore, you must either be able to log into the remote system with an established account username and password/passphrase, or have an administrator on the remote system add the public key to the <code>~/.ssh/authorized_keys</code> file in your account.</li>
+
+<li class="who who-default">
+Two-factor authentication using <a class="kbh" href="beum" title="">Two-Step Login (Duo)</a> is required for access to the login nodes on IU <a class="kbh" href="alde" title="">research supercomputers</a>, and for SCP and SFTP file transfers to those systems. SSH public key authentication remains an option for researchers who submit the <a class="new-window" href="https://hpceverywhere.iu.edu/agree#/agree" title="">"SSH public key authentication to HPS systems" agreement</a> (log into <a class="kbh" href="aquv" title="">HPC <cite>everywhere</cite></a> using your <a class="kbh" href="beml" title="">IU username and passphrase</a>), in which you agree to set a passphrase on your private key when you generate your key pair. If you have questions about how two-factor authentication may impact your workflows, <a class="new-window" href="https://mailform.kb.iu.edu/email.php?cid=1449" title="">contact the UITS Research Applications and Deep Learning team</a>. For help, see <a class="kba" href="bfgm" title="">Get started with Two-Step Login (Duo) at IU</a> and <a class="kba" href="aluu" title="">Help for Two-Step Login (Duo)</a>.
+</li>
+
+</ul>
+
+
+
+<h2 id="linux">Set up public key authentication using SSH on a Linux or macOS computer</h2>
+
+<p>To set up public key authentication using SSH on a Linux or macOS computer:</p>
+
+<ol>
+
+<li>Log into the computer you'll use to access the remote host, and then use command-line SSH to generate a key pair using the RSA algorithm.
+
+<p>To generate RSA keys, on the command line, enter:</p>
+
+<pre class="example">
+ssh-keygen -t rsa
+</pre>
+</li>
+
+<li>You will be prompted to supply a filename (for saving the key pair) and a password (for protecting your private key):
+
+<ul>
+
+<li><strong>Filename:</strong> To accept the default filename (and location) for your key pair, press <code>Enter</code> or <code>Return</code> without entering a filename.
+
+<p>Alternatively, you can enter a filename (for example, <code>my_ssh_key</code>) at the prompt, and then press <code>Enter</code> or <code>Return</code>. However, many remote hosts are configured to accept private keys with the default filename and path (<code>~/.ssh/id_rsa</code> for RSA keys) by default. Consequently, to authenticate with a private key that has a different filename, or one that is not stored in the default location, you must explicitly invoke it either on the SSH command line or in an SSH client configuration file (<code>~/.ssh/config</code>); see <a href="#id" title="">below</a> for instructions.</p>
+</li>
+
+<li><strong>Password:</strong> Enter a password that contains at least five characters, and then press <code>Enter</code> or <code>Return</code>. If you press <code>Enter</code> or <code>Return</code> without entering a password, your private key will be generated without password-protection.
+
+<div class="panel panel-danger">
+<div class="panel-heading"><strong>Important:</strong></div>
+<div class="panel-body">
+If you don't password-protect your private key, anyone with access to your computer conceivably can SSH (without being prompted for a password) to your account on any remote system that has the corresponding public key.
+</div>
+</div>
+</li>
+   
+</ul>
+
+<p>Your private key will be generated using the default filename (for example, <code>id_rsa</code>) or the filename you specified (for example, <code>my_ssh_key</code>), and stored on your computer in a <code>.ssh</code> directory off your home directory (for example, <code>~/.ssh/id_rsa</code> or <code>~/.ssh/my_ssh_key</code>).</p>
+
+<p>The corresponding public key will be generated using the same filename (but with a <code>.pub</code> extension added) and stored in the same location (for example, <code>~/.ssh/id_rsa.pub</code> or <code>~/.ssh/my_ssh_key.pub</code>).</p>
+</li>
+
+<li>Use <a class="kbh" href="akqg" title="">SFTP</a> or <a class="kbh" href="agye" title="">SCP</a> to copy the public key file (for example, <code>~/.ssh/id_rsa.pub</code>) to your account on the remote system (for example, <code>darvader@deathstar.empire.gov</code>); for example, using command-line SCP:
+   
+<pre class="example">
+scp ~/.ssh/id_rsa.pub darvader@deathstar.empire.gov:
+</pre>
+   
+<p>You'll be prompted for your account password. Your public key will be copied to your home directory (and saved with the same filename) on the remote system.</p>
+
+</li>
+
+<li>Log into the remote system using your account username and password.
+
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Note:</strong></div>
+<div class="panel-body">
+If the remote system is not configured to support password-based authentication, you will need to ask system administrators to add your public key to the <code>~/.ssh/authorized_keys</code> file in your account (if your account doesn't have <code>~/.ssh/authorized_keys</code> file, system administrators can create one for you). Once your public key is added to your <code>~/.ssh/authorized_keys</code> file on the remote system, the setup process is complete, and you should now be able to SSH to your account from the computer that has your private key.
+</div>
+</div>
+</li>
+
+<li>If your account on the remote system doesn't already contain a <code>~/.ssh/authorized_keys</code> file, create one; on the command line, enter the following commands:
+   
+<pre class="example">
+mkdir -p ~/.ssh
+touch ~/.ssh/authorized_keys
+</pre>
+
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Note:</strong></div>
+<div class="panel-body">
+If your account on the remote system already has a <code>~/.ssh/authorized_keys</code> file, executing these commands will not damage the existing directory or file.
+</div>
+</div>
+</li>
+
+<li>On the remote system, add the contents of your public key file (for example, <code>~/id_rsa.pub</code>) to a new line in your <code>~/.ssh/authorized_keys</code> file; on the command line, enter:
+   
+<pre class="example">
+cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</pre>
+
+<p>You may want to check the contents of <code>~/.ssh/authorized_keys</code> to make sure your public key was added properly; on the command line, enter:</p>
+
+<pre class="example">
+more ~/.ssh/authorized_keys
+</pre>
+</li>
+
+<li>You may now safely delete the public key file (for example, <code>~/id_rsa.pub</code>) from your account on the remote system; on the command line, enter:
+
+<pre class="example">
+rm ~/id_rsa.pub
+</pre>
+
+<p>Alternatively, if you prefer to keep a copy of your public key on the remote system, move it to your <code>.ssh</code> directory; on the command line, enter:</p>
+   
+<pre class="example">
+mv ~/id_rsa.pub ~/.ssh/
+</pre>
+</li>
+
+<li>Optionally, repeat steps 3-7 to add your public key to other remote systems that you want to access from the computer that has your private key using SSH public key authentication.</li>
+
+<li>You now should be able to SSH to your account on the remote system (for example, <code>username@host2.somewhere.edu</code>) from the computer (for example, <code>host1</code>) that has your private key (for example, <code>~/.ssh/id_rsa</code>):
+
+<ul>
+
+<li>If your private key is password-protected, the remote system will prompt you for the password or passphrase (your private key password/passphrase is not transmitted to the remote system):
+
+<pre class="example">
+[username@host1 ~]$ ssh username@host2.somewhere.edu
+Enter passphrase for key '/username/Host1/.ssh/id_rsa':
+Last login: Mon Oct 20 09:23:17 2014 from host1.somewhere_else.edu
+</pre>
+</li>
+
+<li>If your private key is not password-protected, the remote system will place you on the command line in your home directory without prompting you for a password or passphrase:
+
+<pre class="example">
+[username@host1 ~]$ ssh username@host2.somewhere.edu
+Last login: Mon Oct 20 09:23:17 2014 from host1.somewhere_else.edu
+</pre>
+</li>
+</ul>
+
+<p id="id">If the private key you're using does not have the default name, or is not stored in the default path (not <code>~/.ssh/id_rsa</code>), you must explicitly invoke it in one of two ways:</p>
+
+<ul>
+
+<li><strong>On the SSH command line:</strong> Add the <code>-i</code> flag and the path to your private key.
+
+<p>For example, to invoke the private key <code>host2_key</code>, stored in the <code>~/.ssh/old_keys</code> directory, when connecting to your account on a remote host (for example, <code>username@host2.somewhere.edu</code>), enter: </p>
+
+<pre class="example">
+ssh -i ~/.ssh/old_keys/host2_key username@host2.somewhere.edu
+</pre>
+</li>
+
+<li><strong>In an SSH client configuration file:</strong> SSH gets configuration data from the following sources (in this order):
+
+<ol>
+<li>From command-line options</li>
+
+<li>From the user's client configuration file (<code>~/.ssh/config</code>), if it exists</li>
+
+<li>From the system-wide client configuration file (<code>/etc/ssh/ssh_config</code>)</li>
+</ol>
+
+<p>The SSH client configuration file is a text file containing keywords and arguments. To specify which private key should be used for connections to a particular remote host, use a text editor to create a <code>~/.ssh/config</code> that includes the <code>Host</code> and <code>IdentityFile</code> keywords.</p>
+
+<p>For example, for connections to <code>host2.somewhere.edu</code>, to make SSH automatically invoke the private key <code>host2_key</code>, stored in the <code>~/.ssh/old_keys</code> directory, create a <code>~/.ssh/config</code> file with these lines included:</p>
+
+<pre class="example">
+Host host2.somewhere.edu
+IdentityFile ~/.ssh/old_keys/host2_key
+</pre>
+
+<p>Once you save the file, SSH will use the specified private key for future connections to that host.</p>
+
+<p>You can add multiple <code>Host</code> and <code>IdentityFile</code> directives to specify a different private key for each host listed; for example:</p>
+
+<pre class="example">
+Host host2.somewhere.edu
+IdentityFile ~/.ssh/old_keys/host2_key
+
+Host host4.somewhere.edu
+IdentityFile ~/.ssh/old_keys/host4_key
+
+Host host6.somewhere.edu
+IdentityFile ~/.ssh/old_keys/host6_key
+</pre>
+
+<p>Alternatively, you can use a single asterisk (<code> * </code>) to provide global defaults for all hosts (specify one private key for several hosts); for example:</p>
+
+<pre class="example">
+Host *.somewhere.edu
+IdentityFile ~/.ssh/old_keys/all_hosts_key
+</pre>
+
+<p>For more about the SSH client configuration file, see the OpenSSH SSH client configuration file <a class="new-window" href="http://man7.org/linux/man-pages/man5/ssh_config.5.html" title="">on the web</a> or from the command line (<code>man ssh_config</code>).</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+<h2 id="putty">Set up public key authentication using PuTTY on a Windows 11, Windows 10, or Windows 8.x computer</h2>
+
+<p>The PuTTY command-line SSH client, the PuTTYgen key generation utility, the Pageant SSH authentication agent, and the PuTTY SCP and SFTP utilities are packaged together in a Windows installer available under <a class="new-window" href="https://opensource.org/licenses/MIT" title="">The MIT License</a> for <a class="new-window" href=" https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" title="">free download</a> from the PuTTY development team.</p>
+
+<p>After installing PuTTY:</p>
+
+<ol>
+
+<li>Launch <span class="menuitem">PuTTYgen</span>.</li>
+
+<li>In the "PuTTY Key Generator" window, under "Parameters":
+
+<ul>
+
+<li>For "Type of key to generate", select <span class="menuitem">RSA</span>. (In older versions of PuTTYgen, select <span class="menuitem">SSH2-RSA</span>.)</li>
+
+<li>For "Number of bits in a generated key", leave the default value (<code>2048</code>).</li>
+
+</ul></li>
+
+<li>Under "Actions", click <span class="menuitem">Generate</span>.</li>
+
+<li>When prompted, use your mouse (or trackpad) to move your cursor around the blank area under "Key"; this generates randomness that PuTTYgen uses to generate your key pair.</li>
+
+<li>When your key pair is generated, PuTTYgen displays the public key in the area under "Key". In the "Key passphrase" and "Confirm passphrase" text boxes, enter a passphrase to passphrase-protect your private key.
+
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Note:</strong></div>
+<div class="panel-body">
+If you don't passphrase-protect your private key, anyone with access to your computer will be able to SSH (without being prompted for a passphrase) to your account on any remote system that has the corresponding public key.
+</div>
+</div>
+</li>
+
+<li>Save your public key:
+
+<ol class="lower-alpha">
+
+<li>Under "Actions", next to "Save the generated key", click <span class="menuitem">Save public key</span>.</li>
+
+<li>Give the file a name (for example, <code>putty_key</code>), select a location on your computer to store it, and then click <span class="menuitem">Save</span>.</li>
+
+</ol>
+</li>
+
+<li>Save your private key:
+
+<ol class="lower-alpha">
+
+<li>Under "Actions", next to "Save the generated key", click <span class="menuitem">Save private key</span>.
+
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Note:</strong></div>
+<div class="panel-body">
+If you didn't passphrase-protect your private key, the utility will ask whether you're sure you want to save it without a passphrase. Click <span class="menuitem">Yes</span> to proceed or <span class="menuitem">No</span> to go back and create a passphrase for your private key.
+</div>
+</div>
+</li>
+
+<li>Keep "Save as type" set to <span class="menuitem">PuTTY Private Key Files (*.ppk)</span>, give the file a name (for example, <code>putty_private_key</code>), select a location on your computer to store it, and then click <span class="menuitem">Save</span>.</li>
+
+<li>If you wish to connect to a remote desktop system such as <a class="kba" href="apum" title="">Research Desktop (RED)</a>, click <span class="menuitem">Conversions&#xa0;&gt;&#xa0;Export&#xa0;OpenSSH&#xa0;key</span>, give the file a name (for example, <code>putty_rsa</code>), select a location on your computer to store it, and then click <span class="menuitem">Save</span>.</li>
+</ol>
+</li>
+
+<li>Log into the remote system using your account username and password.
+
+<p>If the remote system does not support password-based authentication, you will need to ask system administrators to add your public key to the <code>~/.ssh/authorized_keys</code> file in your account (if your account doesn't have <code>~/.ssh/authorized_keys</code> file, system administrators can create one for you). Once your public key is added to your account's <code>~/.ssh/authorized_keys</code> file on the remote system...</p>
+</li>
+
+<li>If your account on the remote system doesn't already contain a <code>~/.ssh/authorized_keys</code> file, create one; on the command line, enter the following commands:
+
+<pre class="example">
+mkdir -p ~/.ssh
+touch ~/.ssh/authorized_keys
+</pre>
+
+<p>If your account on the remote system already has <code>~/.ssh/authorized_keys</code>, executing these commands will not damage the existing directory or file.</p>
+</li>
+
+<li>On your computer, in the PuTTYgen utility, copy the contents of the public key (displayed in the area under "Key") onto your Clipboard. Then, on the remote system, use your favorite text editor to paste it onto a new line in your <code>~/.ssh/authorized_keys</code> file, and then save and close the file.</li>
+
+<li>On your computer, open the Pageant SSH authentication agent. This utility runs in the background, so when it opens, you should see its icon displayed in the Windows notification area.</li>
+
+<li>In the Windows notification area, right-click on the <span class="menuitem">Pageant</span> icon, select <span class="menuitem">Add Key</span>, navigate to the location where you saved your private key (for example, <code>putty_private_key.ppk</code>), select the file, and then click <span class="menuitem">Open</span>.</li>
+
+<li>If your private key is passphrase-protected, Pageant will prompt you to enter the passphrase; enter the passphrase for your private key, and then click <span class="menuitem">OK</span>.
+
+<p>If your private key is not passphrase-protected, Pageant will add your private key without prompting you for a passphrase.</p>
+
+<p>Either way, Pageant stores the unencrypted private key in memory for use by PuTTY when you initiate an SSH session to the remote system that has your public key.</p>
+</li>
+
+<li>On your computer, open the PuTTY SSH client:
+
+<ol class="lower-alpha">
+
+<li>On the <span class="menuitem">Session</span> screen:
+
+<ul>
+
+<li>Under "Host Name (or IP address)", enter your username coupled with the hostname of the remote server that has your public key; for example:
+
+<pre class="example">
+dsidious@deathstar.empire.gov
+</pre>
+</li>
+
+<li>Under "Connection type", make sure <span class="menuitem">SSH</span> is selected.</li>
+</ul>
+</li>
+
+<li>In the "Category" list on the left, navigate to the <span class="menuitem">Auth</span> screen (<span class="menuitem">Connection &gt; SSH &gt; Auth</span>). On the <span class="menuitem">Auth</span> screen, under "Authentication methods", select <span class="menuitem">Attempt authentication using Pageant</span>.</li>
+
+<li>Return to the <span class="menuitem">Session</span> screen, and under "Saved Sessions", enter a name (for example, <code>Deathstar</code>), and then click <span class="menuitem">Save</span>.</li>
+
+<li>Click <span class="menuitem">Open</span> to connect to your account on the remote system. With Pageant running in the background, PuTTY will retrieve the unencrypted private key automatically from Pageant and use it to authenticate. Because Pageant has your private key's passphrase saved (if applicable), the remote system will place you on the command line in your account without prompting you for the passphrase.</li>
+
+</ol>
+
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Note:</strong></div>
+<div class="panel-body">
+Technically, at this point, the setup is complete. In the future, whenever you log into your Windows desktop, you can run Pageant, add the private key, and then use PuTTY to SSH to any remote resource that has your public key. Alternatively, you can create a shortcut in your Windows <code>Startup</code> folder to launch Pageant and load your private key automatically whenever you log into your desktop. For instructions, finish the rest of the following steps.
+</div>
+</div>
+</li>
+
+
+
+<li>Open your <code>Startup</code> folder. Press <code>Win-r</code>, and in the "Open" field, type <code>shell:startup</code>, and then press <code>Enter</code>.</li>
+
+<li>Right-click inside the <code>Startup</code> folder, and then select <span class="menuitem">New</span> and <span class="menuitem">Shortcut</span>.</li>
+
+<li>In the "Type the location of the item" text box, enter the path to the Pageant executable (<code>pageant.exe</code>) followed by the path to your private key file (for example, <code>putty_private_key.ppk</code>); enclose both paths in double quotes; for example:
+   
+<pre class="example">
+"C:\Program Files (x86)\PuTTY\pageant.exe"
+"C:\Users\user_profile\ssh_key\putty_private.ppk"
+</pre>
+</li>
+
+<li>Click <span class="menuitem">Next</span>, and then, in the "Type a name for this shortcut" text box, enter a name for the shortcut (for example, <code>PAGEANT</code>).</li>
+
+<li>Click <span class="menuitem">Finish</span>.</li>
+</ol>
+
+<p>The next time you log into your Windows desktop, Pageant will start automatically, load your private key, and (if applicable) prompt you for the passphrase.</p>
+
+
+
+<div class="references panel panel-primary"><div class="panel-heading"><h2 class="panel-title">Related documents</h2></div>
+<div class="list-group"><a class="list-group-item" href="aeww">About ssh-agent and ssh-add in Unix</a>
+</div></div>
+</div>
+</main>
+
+                            <div>
+
+
+    <div id="kms-document-div">
+
+        <div id="kms-documentMetadata-div">
+            <p>
+                <em>This is document</em> <span>aews</span> <em>in the Knowledge Base.</em>
+                <br />
+                <em>Last modified on</em> <span>2021-12-01 17:09:53</span><em>.</em>
+            </p>
+
+        </div>
+        
+    </div>
+
+
+</div>
+                        </div>
+                        <!-- End page content -->
+
+                    </div>
+                </section>
+            </div>
+            <!-- UITS FOOTER -->
+            <footer>
+
+    <div aria-labelledby="social-media-heading" class="rvt-c-footer-social [ rvt-m-top-xl ]" role="complementary">
+
+        <div class="rvt-container-xl">
+            <h2 class="rvt-sr-only" id="social-media-heading">
+                Social media
+            </h2>
+            <ul class="rvt-c-footer-social__list">
+                <li>
+                    <a href="http://www.facebook.com/iu.uits"> <span class="rvt-sr-only rvt-color-white">Facebook for UITS</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40">
+                            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path>
+                            <path d="M24.8996 9.99982V13.1998H23.0996C23.0996 13.1998 21.4996 12.9998 21.4996 14.4998V16.9998H24.7996L24.3996 20.3998H21.4996V29.9998H17.6996V20.2998H15.0996V16.9998H17.7996V14.0998C17.7996 14.0998 17.4996 12.4998 18.8996 11.1998C20.2996 9.89982 22.1996 9.99982 22.1996 9.99982H24.8996Z" fill="#F7F7F8"></path>
+                        </svg>
+                    </a></li>
+                <li>
+                    <a href="https://twitter.com/insideuits"> <span class="rvt-sr-only rvt-color-white">Twitter for UITS</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40">
+                            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path>
+                            <path d="M30.0002 13.7998C29.3002 14.0998 28.5002 14.2998 27.6002 14.3998C28.4002 13.8998 29.1002 13.0998 29.4002 12.0998C28.6002 12.5998 27.7002 12.8998 26.8002 13.0998C26.1002 12.2998 25.0002 11.7998 23.8002 11.7998C21.5002 11.7998 19.7002 13.5998 19.7002 15.8998C19.7002 16.1998 19.7002 16.4998 19.8002 16.7998C16.4002 16.5998 13.4002 14.9998 11.3002 12.4998C10.9002 13.0998 10.7002 13.7998 10.7002 14.5998C10.7002 15.9998 11.4002 17.2998 12.5002 17.9998C11.8002 17.9998 11.2002 17.7998 10.6002 17.4998C10.6002 17.4998 10.6002 17.4998 10.6002 17.5998C10.6002 19.5998 12.0002 21.1998 13.9002 21.5998C13.6002 21.6998 13.2002 21.6998 12.8002 21.6998C12.5002 21.6998 12.3002 21.6998 12.0002 21.5998C12.5002 23.1998 14.0002 24.3998 15.8002 24.3998C14.4002 25.4998 12.6002 26.1998 10.7002 26.1998C10.4002 26.1998 10.0002 26.1998 9.7002 26.0998C11.5002 27.2998 13.7002 27.8998 16.0002 27.8998C23.5002 27.8998 27.7002 21.5998 27.7002 16.1998C27.7002 15.9998 27.7002 15.7998 27.7002 15.6998C28.8002 15.2998 29.4002 14.5998 30.0002 13.7998Z" fill="#F7F7F8"></path>
+                        </svg>
+                    </a></li>
+                <li>
+                    <a href="https://www.instagram.com/uitsatiu/"> <span class="rvt-sr-only rvt-color-white">Instagram for UITS</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40">
+                            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path>
+                            <path d="M24.3004 29.9999H15.6004C12.5004 29.9999 9.90039 27.4999 9.90039 24.2999V15.5999C9.90039 12.4999 12.4004 9.8999 15.6004 9.8999H24.3004C27.4004 9.8999 30.0004 12.3999 30.0004 15.5999V24.2999C30.0004 27.4999 27.5004 29.9999 24.3004 29.9999ZM24.3004 28.4999C25.4004 28.4999 26.5004 28.0999 27.2004 27.2999C27.9004 26.4999 28.4004 25.4999 28.4004 24.3999V15.6999C28.4004 14.5999 28.0004 13.4999 27.2004 12.7999C26.4004 11.9999 25.4004 11.5999 24.3004 11.5999H15.6004C14.5004 11.5999 13.4004 11.9999 12.7004 12.7999C11.9004 13.5999 11.5004 14.5999 11.5004 15.6999V24.3999C11.5004 25.4999 11.9004 26.5999 12.7004 27.2999C13.5004 27.9999 14.5004 28.4999 15.6004 28.4999H24.3004Z" fill="#F7F7F8"></path>
+                            <path d="M25.4006 19.9C25.4006 22.9 23.0006 25.3 20.0006 25.3C17.0006 25.3 14.6006 22.9 14.6006 19.9C14.6006 16.9 17.0006 14.5 20.0006 14.5C23.0006 14.5 25.4006 17 25.4006 19.9ZM20.0006 16.4C18.1006 16.4 16.5006 18 16.5006 19.9C16.5006 21.8 18.1006 23.4 20.0006 23.4C21.9006 23.4 23.5006 21.8 23.5006 19.9C23.5006 18 21.9006 16.4 20.0006 16.4Z" fill="#F7F7F8"></path>
+                            <path d="M25.5002 15.8002C26.2182 15.8002 26.8002 15.2182 26.8002 14.5002C26.8002 13.7822 26.2182 13.2002 25.5002 13.2002C24.7822 13.2002 24.2002 13.7822 24.2002 14.5002C24.2002 15.2182 24.7822 15.8002 25.5002 15.8002Z" fill="#F7F7F8"></path>
+                        </svg>
+                    </a></li>
+                <li>
+                    <a href="http://www.youtube.com/uitsatiu"> <span class="rvt-sr-only rvt-color-white">YouTube for UITS</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40">
+                            <path d="M20,40A20,20,0,1,0,0,20,20,20,0,0,0,20,40Z" fill="#7A1705"></path>
+                            <path d="M29.58,15.17a2.49,2.49,0,0,0-1.77-1.78C26.25,13,20,13,20,13s-6.25,0-7.81.42a2.49,2.49,0,0,0-1.77,1.78A26.26,26.26,0,0,0,10,20a26.23,26.23,0,0,0,.42,4.84,2.47,2.47,0,0,0,1.77,1.75C13.75,27,20,27,20,27s6.25,0,7.81-.42a2.47,2.47,0,0,0,1.77-1.75A26.23,26.23,0,0,0,30,20,26.26,26.26,0,0,0,29.58,15.17ZM18,23V17l5.23,3Z" fill="#F7F7F8"></path>
+                        </svg>
+                    </a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div aria-labelledby="resources-heading" class="rvt-c-footer-related" role="complementary">
+        <h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2>
+        <div class="rvt-container-xl">
+            <div class="rvt-row">
+                <div class="rvt-cols-4-md">
+                    <h3 class="rvt-c-footer-related__heading">Support &amp; More</h3>
+                    <ul class="rvt-plain-list">
+                        <li>
+                            General support or comments:
+                            <ul>
+                                <li>
+                                    <a class="rvt-c-footer-brand__link" href="https://css-fireform.eas.iu.edu/online/form/index/contactsupport" title="Support Center">Email the UITS Support Center</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Research technology support:
+                            <ul>
+                                <li>
+                                    <a class="rvt-c-footer-brand__link" href="https://rt.iu.edu/support/index.html" title="RT">Contact Research Technologies</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="rvt-c-footer-brand__link" href="http://ithelplive.iu.edu" title="IT Help Live">Chat with a consultant</a>
+                        </li>
+                        <li>
+                            <a class="rvt-c-footer-brand__link" href="https://mailform.kb.iu.edu/email.php?cid=1061" title="Ask IT">AskIU</a>
+                        </li>
+                        <li>
+                            <a class="rvt-c-footer-brand__link" href="https://one.iu.edu" title="One.IU">One.IU</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rvt-cols-4-md">
+                    <h3 class="rvt-c-footer-related__heading">Navigation</h3>
+                    <ul class="rvt-plain-list">
+                        <li>
+                            <a class="rvt-c-footer-brand__link" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="rvt-c-footer-brand__link" href="/d/menu">Menus</a>
+                        </li>
+                        <li>
+                            <a class="rvt-c-footer-brand__link" href="/d/line">About us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rvt-cols-4-md">
+                    <h3 class="rvt-c-footer-related__heading">IT@IU</h3>
+                    <ul class="rvt-plain-list">
+                        <li>
+                            <a href="http://it.iu.edu/about/" target="_blank" class="rvt-c-footer-brand__link">About IT</a>
+                        </li>
+                        <li>
+                            <a href="https://uits.iu.edu/staff" target="_blank" class="rvt-c-footer-brand__link">IT staff</a>
+                        </li>
+                        <li>
+                            <a href="http://it.iu.edu/jobs/" target="_blank" class="rvt-c-footer-brand__link">Jobs in IT</a>
+                        </li>
+                        <li>
+                            <a href="http://it.iu.edu/ovpit/" target="_blank" class="rvt-c-footer-brand__link">OVPIT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+            <!-- /UITS FOOTER -->
+        </section>
+        <!-- IU FOOTER -->
+        <!-- *** Start IU brand footer *** -->
+        <footer class="rvt-c-footer-brand" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
+
+        <div class="rvt-container-xl">
+            <div class="rvt-c-footer-brand__inner">
+                <div class="rvt-c-footer-brand__logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" alt="" height="25" viewBox="0 0 20 25" width="20">
+                        <polygon fill="currentColor" points="13.33 3.32 13.33 5.21 14.76 5.21 14.76 15.64 11.9 15.64 11.9 1.9 13.33 1.9 13.33 0 6.67 0 6.67 1.9 8.09 1.9 8.09 15.64 5.24 15.64 5.24 5.21 6.67 5.21 6.67 3.32 0 3.32 0 5.21 1.43 5.21 1.43 17.47 3.7 19.91 8.09 19.91 8.09 22.76 6.67 22.76 6.67 25.13 13.33 25.13 13.33 22.76 11.9 22.76 11.9 19.91 16.1 19.91 18.56 17.47 18.56 5.21 20 5.21 20 3.32 13.33 3.32"></polygon>
+                    </svg>
+                </div>
+                <ul class="rvt-c-footer-brand__list">
+                    <li class="rvt-c-footer-brand__item">
+                        <a href="https://accessibility.iu.edu/assistance/" class="rvt-c-footer-brand__link" rel="noopener noreferrer" target="_blank" title="Having trouble accessing this web page content? Please visit this page for assistance.">Accessibility</a>
+                    </li>
+                    <li class="rvt-c-footer-brand__item">
+                        <a class="rvt-c-footer-brand__link" href="/d/priv">Privacy</a>                </li>
+                    <li class="rvt-c-footer-brand__item">
+                        <a class="rvt-c-footer-brand__link" href="https://www.iu.edu/copyright/index.html">Copyright</a> ¬© <span>2023</span> The Trustees of <a class="rvt-c-footer-brand__link" href="https://iu.edu" itemprop="url"><span itemprop="name">Indiana University</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</footer>
+    </div>
+    <div id="lightboxEnabler" class="visible-lg visible-md"></div>
+    <div id="kb-inline-javascript-div" class="kb-invisible">
+    <script>
+        kb = new Object();
+        kb.autoSuggestUrl = '/auto-suggest';
+        kb.problemSubmitUrl ='/d/problem';
+        kb.commentSubmitUrl ='/d/comment';
+        kb.grecaptchaSiteKey = '6LdtM0MUAAAAAKJRcEXAD5vHbX1GjgAGM-t-Zdhf';
+        kb.isloggedIn =false;
+        kb.generatePasswordUrl = '/rest/generate/password';
+        kb.bannerMessageUrl = '/rest/banner/message';
+    </script>
+</div>
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/resources/build/jquery/jquery-1.9.0.min.js"><!--comment--></script>
+    <script src="/resources/build/jquery/jquery.h5validate.min.js"><!--comment--></script>
+    <div id="analytics" class="kb-invisible">
+
+    <script>
+        var analyticsId = 'UA-48518862-1';
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', analyticsId, 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('require', 'linkid', 'linkid.js');
+        if ($('meta[name=owner-group]').length > 0) {
+            ga('set', 'dimension1', $('meta[name=owner-group]').attr('content'));
+        }
+        if ($('meta[name=audiences]').length > 0) {
+            ga('set', 'dimension2', $('meta[name=audiences]').attr('content'));
+        }
+        if ($('link[rel="canonical"]').length > 0) {
+            ga('set', 'location', $('link[rel="canonical"]').attr('href'));
+        }
+        ga('send', 'pageview');
+
+    </script>
+    
+
+</div>
+    <script src="/resources/build/bootstrap/js/bootstrap.min.js"><!--comment--></script>
+    <script src="/resources/build/it/js/app.js"><!--comment--></script>
+    <script src="/resources/build/jquery/ui/js/jquery-ui-1.10.4.custom.min.js"><!--comment--></script>
+    <script src="/resources/build/jquery/colorbox/js/jquery.colorbox-1.5.9.min.js"><!--comment--></script>
+    <script src="/resources/build/uits/js/rivet-iife.js"><!--comment--></script>
+    <script src="/resources/build/uits/js/site.js"><!--comment--></script>
+    <script src="/resources/build/kms/js/kms.js"><!--comment--></script>
+    <script src="/resources/build/kms/js/comment.js"><!--comment--></script>
+    <script src="/resources/build/jquery/jquery.ba-throttle-debounce.min.js"><!--comment--></script>
+    <script src="/resources/build/jquery/StickyTableHeaders/js/jquery.stickyheader.min.js"><!--comment--></script>
+    <script async="async" src="https://bot.ivy.ai/bot/script/category/3J7Z9KgqjWvYx5MERNGVoAbQeDkXmdyN"><!--comment--></script>
+    <script>
+        var grecaptchaIsAvailable = function () {
+            kb.grecaptchaAvailable = true;
+        }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=grecaptchaIsAvailable&amp;render=explicit" async="async" defer="defer"><!--comment--></script>
+</body>
+
+</html>
+Eù°^/ö      dA	∆dAE}¶dA	»   =    O^partitionKey=%28https%2Ciu.edu%29,:https://kb.iu.edu/d/aews necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/1.1 200 
+Content-Type: text/html;charset=UTF-8
+Date: Thu, 20 Apr 2023 09:45:43 GMT
+Content-Language: en-US
+ original-response-headers Content-Type: text/html;charset=UTF-8
+Date: Thu, 20 Apr 2023 09:45:43 GMT
+Keep-Alive: timeout=20
+Transfer-Encoding: chunked
+Content-Language: en-US
+Connection: keep-alive
+Set-Cookie: X-Mapping-ekfhmgif=7FBC5F0412393B2480D3123277BA10F2; path=/
+ ctid 1 uncompressed-len 0 net-response-time-onstart 1860 net-response-time-onstop 2108  Ü

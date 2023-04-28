@@ -1,0 +1,7 @@
+# This file is created by ibus-daemon, please do not modify it.
+# This file allows processes on the machine to find the
+# ibus session bus with the below address.
+# If the IBUS_ADDRESS environment variable is set, it will
+# be used rather than this file.
+IBUS_ADDRESS=unix:abstract=/home/skill-lync/.cache/ibus/dbus-oW5is24L,guid=a97ab8d49158d2cb8cfa94db644b67c9
+IBUS_DAEMON_PID=1899
